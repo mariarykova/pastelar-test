@@ -1,0 +1,186 @@
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("/assets/book-shelv.jpeg");
+  background-size: cover;
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
+  display: none;
+}
+
+.container.open {
+  display: block;
+  animation: 1s show ease forwards;
+}
+
+.container.close {
+  animation: 1s hidden ease forwards;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -65%);
+  width: 500px;
+  background-color: transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s;
+  z-index: 2;
+  border-radius: 30px;
+}
+
+.modal.visible {
+  transform: translate(0, -50%);
+  animation: 1s show ease forwards;
+}
+
+.modal.invisible {
+  transform: translate(0%, -50%);
+  animation: 1s hidden ease forwards;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: transform 3s;
+  transform-style: preserve-3d;
+  transform-origin: left;
+}
+
+.front .page_inner {
+  width: 100%;
+  height: 100%;
+  transition: opacity 5s;
+  transform-style: preserve-3d;
+  animation: fadeIn 5s forwards;
+}
+
+.back .page_inner {
+  width: 100%;
+  height: 100%;
+  transition: opacity 3s;
+  transform-style: preserve-3d;
+  opacity: 0;
+  animation: fadeOut 5s forwards;
+}
+
+.page.flipped .front .page_inner {
+  animation: fadeOut 5s forwards;
+}
+
+.page.flipped .back .page_inner {
+  animation: fadeIn 5s forwards;
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: #333;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+}
+
+.back {
+  transform: rotateY(-180deg);
+}
+
+/* ARROWS */
+
+.arrow_container {
+  display: flex;
+  padding: 10px 10px;
+  position: absolute;
+  bottom: 0;
+}
+
+.arrow_container_right {
+  right: 0;
+}
+
+.arrow_container_left {
+  left: 0;
+}
+
+.right_arrow,
+.left_arrow {
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  width: 0;
+  height: 0;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.right_arrow {
+  border-left: 10px solid grey;
+}
+
+.left_arrow {
+  border-right: 10px solid grey;
+}
+
+/* BUTTONS */
+
+.btns {
+  display: flex;
+  width: 180px;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    display: none;
+  }
+  to {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes hidden {
+  from {
+    opacity: 1;
+    display: block;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
