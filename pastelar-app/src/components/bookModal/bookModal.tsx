@@ -28,9 +28,9 @@ const BookModal = ({
 
   return (
     <div
-      className={`${classes.container} ${
-        isOpen ? classes.open : classes.close
-      }`}
+      className={`${classes.container} ${isOpen ? classes.open : classes.close}
+      ${isAddedRecipe ? classes.colored : classes.light}
+      `}
     >
       <div
         className={`${classes.modal} ${

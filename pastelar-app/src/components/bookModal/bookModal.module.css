@@ -6,9 +6,17 @@
   right: 0;
   background-image: url("/assets/book-shelv.jpeg");
   background-size: cover;
+  display: none;
+}
+
+.light {
   background-color: rgba(255, 255, 255, 0.8);
   background-blend-mode: lighten;
-  display: none;
+}
+
+.colored {
+  background-color: rgba(255, 255, 255, 0.3);
+  background-blend-mode: soft-light;
 }
 
 .container.open {
